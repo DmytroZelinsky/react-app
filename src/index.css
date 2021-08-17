@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #b8ffd8 !important;
+}
+
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 1px solid steelblue;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  color: red;
+}
+
+
+.todolist-container{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.todolist {
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color :rgb(130,200,130);
+  width: 40rem;
+  /* margin: 1rem auto; */
+  transition: all 0.15s;
+  box-shadow: 0.3rem 0.3rem 0.3rem #b4c5bd;
+  min-height: 5rem;
+  max-height: 50rem;
+
+  display: grid;
+  grid-template-columns: 99% 1%;
+
+
+}
+
+
+.todolist:hover {
+  /* border-left: 40px solid !important; */
+  border-left-width: 2.5rem  !important;
+  background-color: rgb(148, 228, 148); 
+
+}
+.todolist h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-form {
+  margin-bottom: 40px;
+}
+
+.modal-container {
+  margin: 0 auto;
+  width: 60%;
+  background-color: rgb(202, 135, 135);
+}
+
+
+.form-control {
+  margin: 20px 0;
+  background-color: none !important;
+}
+.form-control input:focus ,.form-control textarea:focus{
+  outline:none;
+  border: 4px rgb(179, 176, 176) solid;
+
+}
+
+.form-control label {
+  display: block;
+}
+
+.form-control input, .form-control textarea {
+  width: 20%;
+  margin: 5px;
+  min-height: 3rem;
+  padding: 3px 7px;
+  font-size: 17px;
+  overflow: auto;
+  /* transition: all 0.12s; */
+  vertical-align: bottom;
+
+}
+
+.form-control textarea {
+  resize: none;
+  background-color: balck;
+}
+
+
+.form-control input:hover, .form-control textarea:hover{
+  border: 4px rgb(179, 176, 176) solid;
+}
+
+
+
+.form-control-check label {
+  flex: 1;
+}
+
+
+footer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+h1 {
+  color: rgb(58, 51, 51);
+  display: block;
+  margin: 0 auto;
+}
+
+h3 {
+  color: rgb(99, 99, 91);
+}
+
+.text-display{
+ overflow: auto;
+  word-wrap: break-word !important;
+}
+
+.date-display {
+  color:#913651;
+}
+
+.date-selector{
+  display: block !important;
+  width: 80% !important; 
+  margin: 10px 0;
+}
+.add-button{
+  width: 40rem;;
+  height: 3rem ;
+  display: block ;
+  margin: 5px auto ;
+  background-color: rgb(130,200,130) ;
+  border: none ;
+  box-shadow: 0.3rem 0.3rem 0.3rem #b4c5bd;
+
+}
+
+.add-button:hover{
+  background-color: rgb(148, 228, 148);
+}
+ul {
+  list-style-type: none;
+ }
+
+ textarea {
+   resize: none !important;
+}
