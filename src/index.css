@@ -173,3 +173,8 @@ ul {
  textarea {
    resize: none !important;
 }
+
+.delete-confirmation-container{
+  height: 3rem !important;
+  background-color: red !important;
+}

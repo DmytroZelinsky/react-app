@@ -3,7 +3,6 @@ import axios from "axios"
 const BASE_URL = 'https://localhost:44333/api/';
 export const ENDPOINTS = {
     TODOLISTS :'ToDoLists'
-
 }
 
 export const createAPIEndpoint = (endpoint) => {

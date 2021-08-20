@@ -2,10 +2,15 @@ import { FaTimes  } from 'react-icons/fa'
 import {AiFillEdit} from 'react-icons/ai'
 import { useState } from 'react'
 import Modal from 'react-modal'
+import { Button } from 'react-bootstrap'
 import UpdateTodolistModal from './UpdateTodolistModal'
 import '../index.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import DeteleModal from './DeteleModal'
+
 const Todolist = ({todolist, onDelete,onSave}) => {
     const [showUpdateTodolist, setShowUpdateTodolist] = useState(false)
+    const [showDeleteModal, setShowDeleteModal] = useState(false)
     const todolistsStyle = {
         borderLeft:'1.5rem solid ' + getState(),
     }
@@ -13,11 +18,10 @@ const Todolist = ({todolist, onDelete,onSave}) => {
 
     function getState() {
         switch(todolist.state){
-
             case 1: return'green';
             case 2: return'yellow';
             case 3: return'red';
-            default: return 'red';
+            default: return 'black'
         }
     }
 
@@ -31,7 +35,7 @@ const Todolist = ({todolist, onDelete,onSave}) => {
                 </h2>
                 
                 <FaTimes style ={{color:'red'}}
-                onClick={() => onDelete(todolist.id)}/>
+                onClick={() => setShowDeleteModal(true)}/>
 
                 <div className="text-display"> 
                     {todolist.text}
@@ -43,10 +47,20 @@ const Todolist = ({todolist, onDelete,onSave}) => {
                 onClick={() =>setShowUpdateTodolist(true)}/>
 
                 <div className="date-display">
-                    Due {todolist.date}
+                    Due date: {todolist.date}
                 </div>
-                <Modal
 
+                <DeteleModal 
+                setShowDeleteModal={setShowDeleteModal}
+                showDeleteModal={showDeleteModal}
+                onDelete={onDelete}
+                todolist={todolist}
+                />
+         
+
+
+
+                <Modal
                 isOpen={showUpdateTodolist}
                 ariaHideApp={false}>
                     <FaTimes style ={{color:'red', float: 'right'}}

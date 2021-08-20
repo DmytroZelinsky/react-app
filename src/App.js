@@ -6,12 +6,12 @@ import Modal from 'react-modal'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createAPIEndpoint, ENDPOINTS } from './api'; 
 import {FaTimes} from 'react-icons/fa'
-
+import DeteleModal from './components/DeteleModal'
 function App() {
   const [showAddTodolist, setShowAddTodolist] = useState(false)
   const [todolists, setTodolists] = useState ([])
   
-  useEffect( async () => {
+  useEffect(async () => {
     await createAPIEndpoint(ENDPOINTS.TODOLISTS)
     .fetchAll()
     .then(res => {
@@ -56,6 +56,10 @@ function App() {
 
   return (
     <div className="App">
+      {/* <Popup trigger={<button> Trigger</button>} position="right center">
+        <div>Popup content here !!</div>
+      </Popup> */}
+
       <Header 
         title = "Add your notes"
       />
@@ -66,7 +70,9 @@ function App() {
         onClick = {() => {
           setShowAddTodolist(!showAddTodolist)
         }}
-      ><b>+</b></button>{' '}
+      >
+        <b>+</b>
+      </button>{' '}
 
       <Modal
         ariaHideApp={false}
@@ -79,7 +85,6 @@ function App() {
         showAddTodolist = {showAddTodolist}
         setShowAddTodolist={setShowAddTodolist}/>
       </Modal>
-
 
      
 
