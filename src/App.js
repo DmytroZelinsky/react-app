@@ -2,11 +2,8 @@ import Header from './components/Header'
 import Todolists from './components/Todolists'
 import AddTodolistModal from './components/AddTodolistModal'
 import {useState,useEffect} from 'react'
-import Modal from 'react-modal'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createAPIEndpoint, ENDPOINTS } from './api'; 
-import {FaTimes} from 'react-icons/fa'
-import DeteleModal from './components/DeteleModal'
 function App() {
   const [showAddTodolist, setShowAddTodolist] = useState(false)
   const [todolists, setTodolists] = useState ([])
@@ -56,9 +53,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Popup trigger={<button> Trigger</button>} position="right center">
-        <div>Popup content here !!</div>
-      </Popup> */}
 
       <Header 
         title = "Add your notes"
@@ -69,22 +63,17 @@ function App() {
        variant="primary"
         onClick = {() => {
           setShowAddTodolist(!showAddTodolist)
+          console.log(todolists)
         }}
       >
         <b>+</b>
       </button>{' '}
-
-      <Modal
-        ariaHideApp={false}
-        isOpen={showAddTodolist}>
-        <FaTimes style ={{color:'red', float: 'right'}}
-        onClick = {() => setShowAddTodolist(false)}
-        cursor='pointer'/>
-        <AddTodolistModal 
-        onSave={addTodolist}
-        showAddTodolist = {showAddTodolist}
-        setShowAddTodolist={setShowAddTodolist}/>
-      </Modal>
+      
+      <AddTodolistModal 
+      onSave={addTodolist}
+      showAddTodolist = {showAddTodolist}
+      setShowAddTodolist={setShowAddTodolist}
+      />
 
      
 

@@ -1,16 +1,13 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
-import { useState } from 'react';
 const DeteleModal = ({showDeleteModal, setShowDeleteModal, onDelete, todolist}) => {
 
     const handleClose = () => setShowDeleteModal(false);
-    const handleShow = () => setShowDeleteModal(true);
 
 
     return (
         <>
-
       <Modal show={showDeleteModal} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Delete confirmation</Modal.Title>
@@ -20,7 +17,7 @@ const DeteleModal = ({showDeleteModal, setShowDeleteModal, onDelete, todolist}) 
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={() => {onDelete(todolist.id)
+          <Button variant="danger" onClick={() => {onDelete(todolist.id)
           handleClose()}}>
             Delete
           </Button>

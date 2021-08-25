@@ -41,7 +41,7 @@ body {
 .todolist {
   margin: 5px;
   padding: 10px 20px;
-  cursor: pointer;
+  cursor: default;
   background-color :rgb(130,200,130);
   width: 40rem;
   /* margin: 1rem auto; */
@@ -177,4 +177,8 @@ ul {
 .delete-confirmation-container{
   height: 3rem !important;
   background-color: red !important;
+}
+
+.form-modal {
+
 }

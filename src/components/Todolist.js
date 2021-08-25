@@ -1,7 +1,8 @@
 import { FaTimes  } from 'react-icons/fa'
 import {AiFillEdit} from 'react-icons/ai'
 import { useState } from 'react'
-import Modal from 'react-modal'
+// import Modal from 'react-modal'
+import { Modal, ModalBody } from 'react-bootstrap'
 import { Button } from 'react-bootstrap'
 import UpdateTodolistModal from './UpdateTodolistModal'
 import '../index.css'
@@ -34,7 +35,7 @@ const Todolist = ({todolist, onDelete,onSave}) => {
                     {todolist.title}
                 </h2>
                 
-                <FaTimes style ={{color:'red'}}
+                <FaTimes style ={{color:'red', cursor:'pointer'}}
                 onClick={() => setShowDeleteModal(true)}/>
 
                 <div className="text-display"> 
@@ -42,9 +43,10 @@ const Todolist = ({todolist, onDelete,onSave}) => {
                 </div>
 
                 
-                <AiFillEdit style = {{color:'yellow'}}
+                <AiFillEdit style = {{color:'yellow', cursor:'pointer'}}
+                onClick={() => {setShowUpdateTodolist(true)
                 
-                onClick={() =>setShowUpdateTodolist(true)}/>
+                }}/>
 
                 <div className="date-display">
                     Due date: {todolist.date}
@@ -56,22 +58,12 @@ const Todolist = ({todolist, onDelete,onSave}) => {
                 onDelete={onDelete}
                 todolist={todolist}
                 />
-         
-
-
-
-                <Modal
-                isOpen={showUpdateTodolist}
-                ariaHideApp={false}>
-                    <FaTimes style ={{color:'red', float: 'right'}}
-                    onClick={() => setShowUpdateTodolist(false)}
-                    cursor='pointer'/>
-                    <UpdateTodolistModal
-                    onSave={onSave}
-                    setShowUpdateTodolist={setShowUpdateTodolist}
-                    id={todolist.id}
-                    />
-                </Modal>
+                <UpdateTodolistModal
+                onSave={onSave}
+                setShowUpdateTodolist={setShowUpdateTodolist}
+                showUpdateTodolist = {showUpdateTodolist}
+                todolist={todolist}
+                />
 
                 
             </div>
