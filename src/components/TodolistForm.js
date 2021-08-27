@@ -12,6 +12,7 @@ const TodolistForm = ({onSubmit,title,setTitle,text, setText,state, setState, da
                     <Form.Control
                     type='text'
                     placeholder='Add title'
+                    maxlength = "50"
                     value={title} onChange={(e) => setTitle(e.target.value)}/>
                 </Form.Group>
 
@@ -21,7 +22,7 @@ const TodolistForm = ({onSubmit,title,setTitle,text, setText,state, setState, da
                     <Form.Control
                     placeholder='Add text'
                     as="textarea"
-                    
+                    maxlength = "1250"
                     rows={6}
                     value={text} onChange={(e) => setText(e.target.value)}/>
                 </Form.Group>

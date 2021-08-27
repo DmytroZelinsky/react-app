@@ -10,12 +10,6 @@ function UpdateTodolistModal({onSave,setShowUpdateTodolist,showUpdateTodolist,to
     const [state, setState] = useState(todolist.state);
     const [dateObj, setDateObj] = useState(new Date(todolist.date));
    
-    // if(showUpdateTodolist) {
-    //     setTitle(todolist.title)
-    //     setText(todolist.text)
-    //     setState(todolist.state)
-    //     setDateObj(new Date(todolist.date))
-    // }
 
     useEffect(() => {
         setTitle(todolist.title)
@@ -24,7 +18,7 @@ function UpdateTodolistModal({onSave,setShowUpdateTodolist,showUpdateTodolist,to
         setDateObj(new Date(todolist.date))
         console.log('loaded')
 
-      },[showUpdateTodolist])
+    },[showUpdateTodolist])
 
 
     const onSubmit = (e) => {

@@ -27,8 +27,8 @@ function App() {
 
   }
 
-  const updateTodolist = (id, updatedTodolist) => {
-    createAPIEndpoint(ENDPOINTS.TODOLISTS)
+  const updateTodolist = async (id, updatedTodolist) => {
+    await createAPIEndpoint(ENDPOINTS.TODOLISTS)
     .update(id,updatedTodolist)
     .catch(err => console.log(err))
 
@@ -40,8 +40,8 @@ function App() {
     )
   }
 
-  const deleteTodolist = (id) => {
-    createAPIEndpoint(ENDPOINTS.TODOLISTS)
+  const deleteTodolist = async (id) => {
+    await createAPIEndpoint(ENDPOINTS.TODOLISTS)
     .delete(id)
     .then(res => {
       setTodolists(res.data)
@@ -58,16 +58,7 @@ function App() {
         title = "Add your notes"
       />
 
-      <button className="add-button" 
-      className="add-button"
-       variant="primary"
-        onClick = {() => {
-          setShowAddTodolist(!showAddTodolist)
-          console.log(todolists)
-        }}
-      >
-        <b>+</b>
-      </button>{' '}
+     
       
       <AddTodolistModal 
       onSave={addTodolist}
@@ -75,12 +66,11 @@ function App() {
       setShowAddTodolist={setShowAddTodolist}
       />
 
-     
-
       <Todolists 
       todolists={todolists}
       onDelete={deleteTodolist}
       onSave={updateTodolist}
+      setShowAddTodolist={setShowAddTodolist}
       />
 
     </div>

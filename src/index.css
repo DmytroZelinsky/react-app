@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #b8ffd8 !important;
+  background-color: #aff6cd !important;
 }
 
 .container {
@@ -29,28 +29,41 @@ body {
   color: red;
 }
 
+.add-button{
+  width: 50rem;;
+  min-height: 3.5rem ;
+  /* display: block ; */
+  margin: 0.4rem auto ;
+  background-color: rgb(130,200,130) ;
+  border: none;
+  box-shadow: 0.3rem 0.3rem 0.3rem #b4c5bd;
+}
+
+.add-button:hover{
+  background-color: rgb(148, 228, 148);
+}
 
 .todolist-container{
   display: flex;
+  max-width: 50rem; 
+  min-width: 10rem;
+  margin: 0 auto;
   justify-content: space-around;
-  flex-direction: column;
   align-items: center;
-
+  flex-flow: row wrap
 }
 
 .todolist {
-  margin: 5px;
+  margin: 0.4rem auto;
   padding: 10px 20px;
   cursor: default;
   background-color :rgb(130,200,130);
-  width: 40rem;
-  /* margin: 1rem auto; */
+  width: 50rem;
   transition: all 0.15s;
   box-shadow: 0.3rem 0.3rem 0.3rem #b4c5bd;
   min-height: 5rem;
-  max-height: 50rem;
-
   display: grid;
+
   grid-template-columns: 99% 1%;
 
 
@@ -69,9 +82,7 @@ body {
   justify-content: space-between;
 }
 
-.add-form {
-  margin-bottom: 40px;
-}
+
 
 .modal-container {
   margin: 0 auto;
@@ -129,7 +140,7 @@ footer {
 }
 
 h1 {
-  color: rgb(58, 51, 51);
+  color: rgb(0, 0, 0);
   display: block;
   margin: 0 auto;
 }
@@ -138,10 +149,10 @@ h3 {
   color: rgb(99, 99, 91);
 }
 
-.text-display{
+/* .text-display{
  overflow: auto;
   word-wrap: break-word !important;
-}
+} */
 
 .date-display {
   color:#913651;
@@ -152,20 +163,7 @@ h3 {
   width: 80% !important; 
   margin: 10px 0;
 }
-.add-button{
-  width: 40rem;;
-  height: 3rem ;
-  display: block ;
-  margin: 5px auto ;
-  background-color: rgb(130,200,130) ;
-  border: none ;
-  box-shadow: 0.3rem 0.3rem 0.3rem #b4c5bd;
 
-}
-
-.add-button:hover{
-  background-color: rgb(148, 228, 148);
-}
 ul {
   list-style-type: none;
  }
@@ -174,11 +172,8 @@ ul {
    resize: none !important;
 }
 
-.delete-confirmation-container{
-  height: 3rem !important;
-  background-color: red !important;
+.title-display {
+  word-wrap: break-word;
+  overflow: hidden;
 }
 
-.form-modal {
-
-}
