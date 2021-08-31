@@ -1,7 +1,16 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
-const DeteleModal = ({showDeleteModal, setShowDeleteModal, onDelete, todolist}) => {
+import { ITodoItem } from '../types/types';
+
+type Props = {
+  showDeleteModal: boolean,
+  setShowDeleteModal: (arg0:boolean) => void,
+  onDelete: (arg0: number) => void,
+  todolist: ITodoItem
+}
+
+const DeteleModal = ({showDeleteModal, setShowDeleteModal, onDelete, todolist}:Props) => {
 
     const handleClose = () => setShowDeleteModal(false);
 

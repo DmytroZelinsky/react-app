@@ -4,12 +4,13 @@ import AddTodolistModal from './components/AddTodolistModal'
 import {useState,useEffect} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createAPIEndpoint, ENDPOINTS } from './api'; 
+import { ITodoItem } from './types/types';
 function App() {
   const [showAddTodolist, setShowAddTodolist] = useState(false)
-  const [todolists, setTodolists] = useState ([])
+  const [todolists, setTodolists] = useState<ITodoItem[]> ([])
   
-  useEffect(async () => {
-    await createAPIEndpoint(ENDPOINTS.TODOLISTS)
+  useEffect( () => {
+    createAPIEndpoint(ENDPOINTS.TODOLISTS)
     .fetchAll()
     .then(res => {
       setTodolists(res.data)})
@@ -17,7 +18,7 @@ function App() {
     console.log(todolists)
   },[])
  
-  const addTodolist = async (todolist) => {
+  const addTodolist = async (todolist:ITodoItem) => {
 
     await createAPIEndpoint(ENDPOINTS.TODOLISTS)
     .create(todolist)
@@ -27,20 +28,17 @@ function App() {
 
   }
 
-  const updateTodolist = async (id, updatedTodolist) => {
+  const updateTodolist = async (id: number, updatedTodolist: ITodoItem) => {
     await createAPIEndpoint(ENDPOINTS.TODOLISTS)
     .update(id,updatedTodolist)
     .catch(err => console.log(err))
 
     updatedTodolist.id = id
-    setTodolists(
-      todolists.map((todolist) => 
-      todolist.id === id ? 
-      todolist = updatedTodolist : todolist)
-    )
+    setTodolists(todolists.map((todolist) => 
+    todolist.id === id ? todolist = updatedTodolist : todolist))
   }
 
-  const deleteTodolist = async (id) => {
+  const deleteTodolist = async (id: number) => {
     await createAPIEndpoint(ENDPOINTS.TODOLISTS)
     .delete(id)
     .then(res => {
@@ -57,11 +55,8 @@ function App() {
       <Header 
         title = "Add your notes"
       />
-
-     
-      
       <AddTodolistModal 
-      onSave={addTodolist}
+      onAdd={addTodolist}
       showAddTodolist = {showAddTodolist}
       setShowAddTodolist={setShowAddTodolist}
       />
@@ -69,7 +64,7 @@ function App() {
       <Todolists 
       todolists={todolists}
       onDelete={deleteTodolist}
-      onSave={updateTodolist}
+      onUpdate={updateTodolist}
       setShowAddTodolist={setShowAddTodolist}
       />
 

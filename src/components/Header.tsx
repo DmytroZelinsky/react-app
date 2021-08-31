@@ -1,5 +1,7 @@
-
-const Header = ({title}) => {
+type Props = {
+    title: string
+}
+const Header = ({title} : Props) => {
     
     return (
         <header className='header'>

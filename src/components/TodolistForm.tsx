@@ -1,18 +1,31 @@
-import React from 'react'
+import React, { FormEvent } from 'react'
 import DatePicker from 'react-date-picker'
 import { Button } from 'react-bootstrap'
 import { Form } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const TodolistForm = ({onSubmit,title,setTitle,text, setText,state, setState, date, setDate, setShow}) => {
+type Props = {
+    onSubmit: (arg0: FormEvent)=>void,
+    title: string,
+    setTitle: (arg0: string) => void,
+    text: string,
+    setText : (arg0: string) => void,
+    state: number,
+    setState: (arg0: number) => void,
+    date: Date,
+    setDate : (arg0: Date) => void
+
+}
+
+const TodolistForm = ({onSubmit,title,setTitle,text, setText,state, setState, date, setDate} : Props) => {
     return (
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={(e) => onSubmit(e)}>
                 <Form.Group>
                     <Form.Label>Title</Form.Label>
                     <Form.Control
                     type='text'
                     placeholder='Add title'
-                    maxlength = "50"
+                    maxLength = {50}
                     value={title} onChange={(e) => setTitle(e.target.value)}/>
                 </Form.Group>
 
@@ -22,7 +35,7 @@ const TodolistForm = ({onSubmit,title,setTitle,text, setText,state, setState, da
                     <Form.Control
                     placeholder='Add text'
                     as="textarea"
-                    maxlength = "1250"
+                    maxLength = {1250}
                     rows={6}
                     value={text} onChange={(e) => setText(e.target.value)}/>
                 </Form.Group>
@@ -31,7 +44,7 @@ const TodolistForm = ({onSubmit,title,setTitle,text, setText,state, setState, da
                     <Form.Label>State</Form.Label>
                     <Form.Select
                         value={state} 
-                        onChange={(e) => setState(parseInt(e.target.value))}>
+                        onChange={(e) => setState(parseInt(e.currentTarget.value))}>
                         <option value={3}>Planning</option>
                         <option value={2}>In process</option>
                         <option value={1}>Done</option>
@@ -45,7 +58,7 @@ const TodolistForm = ({onSubmit,title,setTitle,text, setText,state, setState, da
                         minDate={new Date()}
                     />
                 </div >
-                <div class="float-right">
+                <div className="float-right">
                     <Button 
 
                     variant="primary" 

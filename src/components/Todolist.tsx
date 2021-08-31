@@ -8,8 +8,15 @@ import UpdateTodolistModal from './UpdateTodolistModal'
 import '../index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DeteleModal from './DeteleModal'
+import { ITodoItem } from '../types/types'
 
-const Todolist = ({todolist, onDelete,onSave}) => {
+type Props = {
+    todolist: ITodoItem,
+    onDelete: (arg0: number) => void,
+    onUpdate: (arg0: number, arg1: ITodoItem) => void
+}
+
+const Todolist = ({todolist, onDelete,onUpdate}: Props) => {
     const [showUpdateTodolist, setShowUpdateTodolist] = useState(false)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
     const todolistsStyle = {
@@ -59,7 +66,7 @@ const Todolist = ({todolist, onDelete,onSave}) => {
                 todolist={todolist}
                 />
                 <UpdateTodolistModal
-                onSave={onSave}
+                onUpdate={onUpdate}
                 setShowUpdateTodolist={setShowUpdateTodolist}
                 showUpdateTodolist = {showUpdateTodolist}
                 todolist={todolist}

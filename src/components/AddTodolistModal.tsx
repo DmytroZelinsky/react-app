@@ -1,28 +1,38 @@
-import {useState} from 'react'
+import { FormEvent, useState } from 'react'
 import TodolistForm from './TodolistForm'
 import { Modal } from 'react-bootstrap'
-const Form = {
-    
+import { ITodoItem } from '../types/types'
+type Props = {
+    onAdd:(arg0: ITodoItem) => void,
+    setShowAddTodolist: (arg0: boolean) => void,
+    showAddTodolist: boolean
 }
-const AddTodolistModal = ({onSave,setShowAddTodolist, showAddTodolist}) => {
-    const [title, setTitle] = useState('')
-    const [text, setText] = useState('')
-    const [state, setState] = useState(1)
-    const [dateObj, setDateObj] = useState(new Date())
+const AddTodolistModal = ({onAdd,setShowAddTodolist, showAddTodolist} : Props) => {
+    const [newTitle, setTitle] = useState('')
+    const [newText, setText] = useState('')
+    const [newState, setState] = useState(1)
+    const [newDateObj, setDateObj] = useState(new Date())
 
-    const onSubmit = (e) =>
+    const onSubmit = (e : FormEvent) =>
     {
         e.preventDefault()
-        if(!title){
+        if(!newTitle){
             alert('Eneter title')
             return
         }
-        if(!text){
+        if(!newText){
             alert('Enter text')
             return
         }    
-        const date = dateObj === null? (new Date()).toDateString():dateObj.toDateString()   
-        onSave({title, text, state, date});
+        const newDateString = newDateObj === null? (new Date()).toDateString() : newDateObj.toDateString()   
+        const newTodolist: ITodoItem = {
+            id:0,
+            title: newTitle,
+            text: newText,
+            state: newState,
+            date: newDateString
+        }
+        onAdd(newTodolist);
         setTitle('');
         setText('');
         setState(1);
@@ -42,15 +52,14 @@ const AddTodolistModal = ({onSave,setShowAddTodolist, showAddTodolist}) => {
                 <Modal.Body>
                     <TodolistForm
                     onSubmit={onSubmit}
-                    title={title}
+                    title={newTitle}
                     setTitle={setTitle}
-                    text={text}
+                    text={newText}
                     setText={setText}
-                    state={state}
+                    state={newState}
                     setState={setState}
-                    date={dateObj}
+                    date={newDateObj}
                     setDate={setDateObj}
-                    setShow={setShowAddTodolist}
                     />
                 </Modal.Body>
             </Modal>

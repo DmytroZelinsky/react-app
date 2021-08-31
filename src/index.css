@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #aff6cd !important;
+  background-color: #4665a8 !important;
 }
 
 .container {
@@ -36,7 +36,7 @@ body {
   margin: 0.4rem auto ;
   background-color: rgb(130,200,130) ;
   border: none;
-  box-shadow: 0.3rem 0.3rem 0.3rem #b4c5bd;
+  box-shadow: 0.3rem 0.3rem 0.3rem #3e5c74;
 }
 
 .add-button:hover{
@@ -60,7 +60,7 @@ body {
   background-color :rgb(130,200,130);
   width: 50rem;
   transition: all 0.15s;
-  box-shadow: 0.3rem 0.3rem 0.3rem #b4c5bd;
+  box-shadow: 0.3rem 0.3rem 0.3rem #3e5c74;
   min-height: 5rem;
   display: grid;
 
@@ -149,10 +149,7 @@ h3 {
   color: rgb(99, 99, 91);
 }
 
-/* .text-display{
- overflow: auto;
-  word-wrap: break-word !important;
-} */
+
 
 .date-display {
   color:#913651;
@@ -170,6 +167,7 @@ ul {
 
  textarea {
    resize: none !important;
+   
 }
 
 .title-display {
@@ -177,3 +175,7 @@ ul {
   overflow: hidden;
 }
 
+.text-display{
+  word-wrap: break-word !important;
+  overflow: hidden;
+}
